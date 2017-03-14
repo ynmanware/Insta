@@ -1,0 +1,14 @@
+
+1. List the title, release year, genre and director of all 'action' movies.
+
+	select * from movies where genre='action';
+
+2. List the actors and their birth year for all movies directed by 'Wes Anderson' .
+
+	select actor, birth_year from movie_cast as mc join movies as m on m.title=mc.movie where m.director='Wes Anderson';
+
+3. List the title, release year, genre and director of all movies staring 'Jeff Goldblum'
+but not 'Bruce Willis'.
+
+	select title, release_year, genre, director from movies as m join movie_cast as mc on m.title=mc.movie where mc.actor='Jeff Goldblum' and title NOT IN (select title from movies as m join movie_cast as mc on m.title=mc.movie where mc.actor='Bruce Willis');
+	

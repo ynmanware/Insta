@@ -1,0 +1,26 @@
+
+how to run the bash script file from command prompt
+upload and run chmod +x script.sh
+save file :x 
+exit without saving :q!
+
+how to pass an argument to bash script
+
+
+
+===========
+working 
+https://www.tutorialspoint.com/execute_bash_online.php
+https://goo.gl/6GcLaj
+
+//note about the above commands 
+tr ' ' '\n' -> replaces all spaces with new line
+uniq -c -> Count Number of Occurrences of lines in a file 
+sed '/^\s*$/d' -> remove the empty lines 
+
+==============
+
+ 
+ +
+ 02 vb+65
+http://plnkr.co/edit/83TgMUKcxln0pfXSJKGi?p=preview

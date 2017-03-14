@@ -1,0 +1,12 @@
+Apart from the steps given in the Test, I needed to.. 
+
+1. Create a simple maven project in Eclipse IDE
+2. Modify POM file to include following dependency
+		<dependency>
+			<groupId>com.datastax.cassandra</groupId>
+			<artifactId>cassandra-driver-core</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+3. Write attached Java Program (C7_CassandraTest.java)
+	- In the program, I used the connectionInfo->Java available at following link https://console.instaclustr.com/dashboard/0e14d126-cfdd-4248-ad2a-78c80b061ff6/clusters/cluster-059a92a8-3520-4c7e-b099-b6a99cb9946d/connection-details
+	- read the content from csv file and updated the same in database
