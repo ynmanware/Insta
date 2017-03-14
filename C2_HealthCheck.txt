@@ -1,4 +1,4 @@
-//check disk space
+// Check disk usage 
 ubuntu@ip-172-31-3-245:~$ df -ah
 Filesystem      Size  Used Avail Use% Mounted on
 sysfs              0     0     0    - /sys
@@ -16,6 +16,8 @@ none            497M     0  497M   0% /run/shm
 none            100M     0  100M   0% /run/user
 none               0     0     0    - /sys/fs/pstore
 systemd            0     0     0    - /sys/fs/cgroup/systemd
+
+My Notes: The disk is running out of space, either reduce files and add storage
 
 // Find Biggest files 
 ubuntu@ip-172-31-3-245:~$ du -a /var | sort -n -r | head -n 10
@@ -36,8 +38,7 @@ du: cannot read directory ‘/var/spool/cron/atspool’: Permission denied
 87996   /var/cache/apt-xapian-index/index.1
 51812   /var/cache/apt/archives
 
-
-//check overall memory, cpu usage
+// Check server utilization
 ubuntu@ip-172-31-3-245:~$ top
 top - 02:39:26 up 4 days, 18:35,  1 user,  load average: 0.00, 0.01, 0.05
 Tasks: 102 total,   1 running, 101 sleeping,   0 stopped,   0 zombie
@@ -83,7 +84,7 @@ KiB Swap:        0 total,        0 used,        0 free.    48904 cached Mem
    35 root      20   0       0      0      0 S  0.0  0.0   0:00.00 rcuob/11
    36 root      20   0       0      0      0 S  0.0  0.0   0:00.00 rcuob/12
 
-//make sure it is connected to internet   
+// Make sure it is connected to internet   
 ubuntu@ip-172-31-3-245:~$ ping -c 1 google.com
 PING google.com (172.217.5.206) 56(84) bytes of data.
 64 bytes from lax28s10-in-f14.1e100.net (172.217.5.206): icmp_seq=1 ttl=50 time=9.62 ms
@@ -92,4 +93,24 @@ PING google.com (172.217.5.206) 56(84) bytes of data.
 1 packets transmitted, 1 received, 0% packet loss, time 0ms
 rtt min/avg/max/mdev = 9.625/9.625/9.625/0.000 ms
 	
-	
+// Check if the OS is upto date
+ubuntu@ip-172-31-3-245:/var$ uname -a
+Linux ip-172-31-3-245 3.13.0-74-generic #118-Ubuntu SMP Thu Dec 17 22:52:10 UTC 2015 x86_64 x86_64 x86_64 GNU/Linux
+ubuntu@ip-172-31-3-245:/var$ lsb_release -a
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 14.04.5 LTS
+Release:        14.04
+Codename:       trusty
+
+// Check Listening Network Ports
+ubuntu@ip-172-31-3-245:/var$ netstat -tulpn
+(No info could be read for "-p": geteuid()=1000 but you should be root.)
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 0.0.0.0:2222            0.0.0.0:*               LISTEN      -
+tcp6       0      0 :::2222                 :::*                    LISTEN      -
+udp        0      0 0.0.0.0:68              0.0.0.0:*                           -
+udp        0      0 0.0.0.0:32056           0.0.0.0:*                           -
+udp6       0      0 :::49958                :::*                                -
+
